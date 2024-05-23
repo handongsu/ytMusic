@@ -2,6 +2,7 @@
 
 import React from "react";
 import Logo from "./elements/Logo";
+import Navigator from "./elements/Navigator";
 
 const Sidebar = ({ children }) => {
   return (
@@ -10,7 +11,9 @@ const Sidebar = ({ children }) => {
         <div className="p-[24px]">
           <Logo />
         </div>
-        <div>navigator</div>
+        <div>
+          <Navigator />
+        </div>
       </nav>
       <div className="w-full lg:w-[calc(100%-240px)] ">{children}</div>
     </div>

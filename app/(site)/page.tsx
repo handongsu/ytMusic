@@ -1,9 +1,7 @@
 import { sleep } from "@/lib/utils";
 import React from "react";
 
-const page = async () => {
-  await sleep(2000);
-
+const page = () => {
   return <div>Homepage</div>;
 };
 

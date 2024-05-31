@@ -1,7 +1,6 @@
 "use client";
-
-import LoadingBar from "@/components/LoadingBar";
 import React from "react";
+import LoadingBar from "@/components/LoadingBar";
 
 const loading = () => {
   return <LoadingBar />;

@@ -1,18 +1,16 @@
 "use client";
-
 import React, { useMemo } from "react";
 import { GoHome } from "react-icons/go";
-import { FiCompass } from "react-icons/fi";
-import { FiMusic } from "react-icons/fi";
-import { FiPlus } from "react-icons/fi";
+import { FiPlus, FiMusic, FiCompass } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { dummyPlaylistArray } from "@/lib/dummyData";
-import PlaylistNav from "./PlaylistNav";
+import PlayListNav from "./PlayListNav";
 
 const Navigator = () => {
   const pathname = usePathname();
+
   const routes = useMemo(() => {
     return [
       {
@@ -35,6 +33,7 @@ const Navigator = () => {
       },
     ];
   }, [pathname]);
+
   return (
     <div>
       <section className="flex flex-col gap-2 p-4">
@@ -43,8 +42,8 @@ const Navigator = () => {
             <Link key={route.label} href={route.href}>
               <div
                 className={cn(
-                  "flex flex-row items-center gap-4 text-[16px] hover:bg-neutral-700 rounded-lg p-2",
-                  routes.isActive && "bg-neutral-700"
+                  "text-[16px] flex flex-row items-center gap-4 hover:bg-neutral-700 rounded-lg p-2",
+                  route.isActive && "bg-neutral-800"
                 )}
               >
                 {route.icon}
@@ -58,8 +57,11 @@ const Navigator = () => {
         <div className="w-full h-[1px] bg-neutral-700"></div>
       </section>
       <section className="px-6">
-        <div className="hover:bg-neutral-700 flex items-center bg-neutral-700 my-6 rounded-3xl p-2 font-[300] justify-center gap-2">
-          <FiPlus size={24} />
+        <div
+          className="hover:bg-neutral-700 cursor-pointer
+         flex flex-row items-center bg-neutral-800 my-6 rounded-3xl p-2 font-[200] justify-center gap-2"
+        >
+          <FiPlus size={24}></FiPlus>
           <span>새 재생목록</span>
         </div>
       </section>
@@ -67,7 +69,7 @@ const Navigator = () => {
         <ul className="flex flex-col">
           {dummyPlaylistArray.map((playlist) => {
             return (
-              <PlaylistNav key={playlist.id} playlist={playlist}></PlaylistNav>
+              <PlayListNav playlist={playlist} key={playlist.id}></PlayListNav>
             );
           })}
         </ul>

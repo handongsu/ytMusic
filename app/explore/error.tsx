@@ -1,6 +1,6 @@
 "use client";
-import ErrorMessage from "@/components/ErrorMessage";
 import React from "react";
+import ErrorMessage from "@/components/ErrorMessage";
 
 const error = () => {
   return <ErrorMessage />;
